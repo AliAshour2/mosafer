@@ -1,42 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeScreen extends StatelessWidget {
+import '../../../todos/presentation/providers/todos_provider.dart';
+
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final todos = ref.watch(todosProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mosafer'),
+        title: const Text('Todos'),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                Icons.directions_bus_rounded,
-                size: 72,
-                color: theme.colorScheme.primary,
-              ),
-              const SizedBox(height: 24),
-              Text(
-                'Foundation ready',
-                style: theme.textTheme.headlineSmall,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 12),
-              Text(
-                'Supabase, Riverpod, and route scaffolding are ready for the next feature layer.',
-                style: theme.textTheme.bodyLarge,
-                textAlign: TextAlign.center,
-              ),
-            ],
+      body: todos.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (error, stackTrace) => Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  'Could not load todos.',
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  error.toString(),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 16),
+                FilledButton(
+                  onPressed: () => ref.invalidate(todosProvider),
+                  child: const Text('Retry'),
+                ),
+              ],
+            ),
           ),
         ),
+        data: (items) {
+          if (items.isEmpty) {
+            return const Center(child: Text('No todos found.'));
+          }
+
+          return ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (context, index) => ListTile(
+              title: Text(items[index].name),
+            ),
+          );
+        },
       ),
     );
   }

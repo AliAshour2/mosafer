@@ -6,16 +6,20 @@ Future<void> bootstrap() async {
 
   const supabaseUrl = String.fromEnvironment(
     'SUPABASE_URL',
-    defaultValue: 'http://localhost:54321',
+    defaultValue: 'https://lyhjolghswirstktvzfy.supabase.co',
   );
+  const supabasePublishableKey =
+      String.fromEnvironment('SUPABASE_PUBLISHABLE_KEY');
 
-  const supabaseAnonKey = String.fromEnvironment(
-    'SUPABASE_ANON_KEY',
-    defaultValue: 'dev-placeholder',
-  );
+  if (supabasePublishableKey.isEmpty) {
+    throw StateError(
+      'Missing SUPABASE_PUBLISHABLE_KEY. '
+      'Pass it with --dart-define=SUPABASE_PUBLISHABLE_KEY=...',
+    );
+  }
 
   await Supabase.initialize(
     url: supabaseUrl,
-    publishableKey: supabaseAnonKey,
+    publishableKey: supabasePublishableKey,
   );
 }
