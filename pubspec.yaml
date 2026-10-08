@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   cupertino_icons: ^1.0.8
   flutter_riverpod: ^2.6.1
@@ -58,6 +60,28 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/inter-regular.ttf
+          weight: 400
+        - asset: assets/fonts/inter/inter-medium.ttf
+          weight: 500
+        - asset: assets/fonts/inter/inter-semibold.ttf
+          weight: 600
+        - asset: assets/fonts/inter/inter-bold.ttf
+          weight: 700
+    - family: IBM Plex Sans Arabic
+      fonts:
+        - asset: assets/fonts/ibm_plex_sans_arabic/ibm-plex-sans-arabic-regular.ttf
+          weight: 400
+        - asset: assets/fonts/ibm_plex_sans_arabic/ibm-plex-sans-arabic-medium.ttf
+          weight: 500
+        - asset: assets/fonts/ibm_plex_sans_arabic/ibm-plex-sans-arabic-semibold.ttf
+          weight: 600
+        - asset: assets/fonts/ibm_plex_sans_arabic/ibm-plex-sans-arabic-bold.ttf
+          weight: 700
 
   # To add assets to your application, add an assets section, like this:
   # assets:

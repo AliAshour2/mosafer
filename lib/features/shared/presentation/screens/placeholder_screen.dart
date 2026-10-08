@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/design_system/components/feedback/app_empty_state.dart';
+
 class PlaceholderScreen extends StatelessWidget {
   const PlaceholderScreen({
     super.key,
@@ -14,30 +16,10 @@ class PlaceholderScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                Icons.construction_rounded,
-                size: 64,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              const SizedBox(height: 16),
-              Text(
-                title,
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(height: 12),
-              const Text(
-                'This route is reserved for future feature scaffolding.',
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
+      body: AppEmptyState(
+        title: title,
+        description: 'This route is reserved for future feature scaffolding.',
+        icon: Icons.construction_rounded,
       ),
     );
   }

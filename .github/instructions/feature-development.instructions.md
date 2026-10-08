@@ -66,13 +66,24 @@ Never place service-role keys, secrets, passwords, or private credentials in the
 
 ## Design system and accessibility
 
-The existing design system is the source of truth for colors, typography, spacing, radius, elevation, components, and interaction patterns. Search for and reuse existing tokens and shared widgets before creating new ones. Avoid arbitrary visual values or duplicate components unless a distinct reusable behavior justifies them.
+The single source of truth is documented in `docs/design/design-system.md` and implemented in `lib/core/design_system/`. Read the relevant token and component APIs before building or changing feature UI.
 
-Keep the product experience coherent and prioritize transportation-use-case qualities: trust, clarity, speed, safety, predictability, and ease of use. Avoid decorative UI, excessive gradients, glassmorphism, shadows, animations, icons, or rounded containers without a clear purpose.
+Before creating styling or a component:
+
+1. Search for an existing component.
+2. Search for an existing token.
+3. Reuse it if it meets the behavior and accessibility need.
+4. If it does not, explain why, add the smallest reusable token/component to the Design System, document it, and then consume it from the feature.
+
+Do not introduce feature-local arbitrary colors (`Color(0x...)`), font sizes/weights, spacing, border radii, shadows, button/input/card styles, or status palettes. Do not create feature-specific versions of existing global components. Consume the active `ThemeData`, `ColorScheme`, `AppSemanticColors`, `AppTypography`, `AppSpacing`, `AppRadius`, `AppSizes`, and shared components.
+
+Keep the product experience coherent and prioritize transportation-use-case qualities: trust, clarity, speed, safety, predictability, and ease of use. Follow the design direction and density/motion principles in `docs/design/design-system.md`; the Design System is the implementation source of truth. Avoid decorative UI, excessive gradients, glassmorphism, shadows, animations, icons, or rounded containers without a clear purpose.
 
 Consider small and large phones, tablets, landscape where applicable, and text scaling. Prefer flexible constraints and the repository's existing responsive approach over fixed screen dimensions. Support accessibility with readable text, sufficient contrast, meaningful semantics and labels, appropriate touch targets, and usable focus behavior. Do not convey important information by color alone.
 
 Data-driven screens should provide appropriate loading, error, and empty states, reusing shared state components when available. Do not expose raw technical errors to users; transform errors into useful messages and preserve appropriate logging/diagnostics rather than silently swallowing failures.
+
+Support both English LTR and Arabic RTL. Let localization establish text direction; use directional padding/alignment and direction-aware icons. Do not hardcode left/right layout assumptions. Consider contrast, text scaling, touch targets, screen-reader semantics, keyboard/focus use, and responsive constraints. Do not communicate state by color alone.
 
 ## Navigation and models
 

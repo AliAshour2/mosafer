@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/design_system/components/feedback/app_loading.dart';
 import '../../../todos/presentation/providers/todos_provider.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -15,34 +16,20 @@ class HomeScreen extends ConsumerWidget {
         title: const Text('Todos'),
       ),
       body: todos.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stackTrace) => Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Text(
-                  'Could not load todos.',
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  error.toString(),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 16),
-                FilledButton(
-                  onPressed: () => ref.invalidate(todosProvider),
-                  child: const Text('Retry'),
-                ),
-              ],
-            ),
-          ),
+        loading: () => const AppLoadingIndicator(
+          label: 'Loading todos',
+        ),
+        error: (error, stackTrace) => AppErrorState(
+          message: 'We could not load the todos right now. Please try again.',
+          onRetry: () => ref.invalidate(todosProvider),
         ),
         data: (items) {
           if (items.isEmpty) {
-            return const Center(child: Text('No todos found.'));
+            return const AppEmptyState(
+              title: 'No todos yet',
+              description: 'There are no items to show right now.',
+              icon: Icons.checklist_rounded,
+            );
           }
 
           return ListView.builder(
