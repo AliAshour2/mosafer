@@ -1,0 +1,34 @@
+{
+  "@@locale": "en",
+  "authPhoneTitle": "Continue with your phone",
+  "authPhoneSubtitle": "Enter your phone number to continue.",
+  "authPhoneLabel": "Phone number",
+  "authPhoneHint": "Enter phone number",
+  "authPhoneHelp": "Include your country calling code. No code will be sent in this demo.",
+  "authDemoNotice": "Demo only: this number is not verified and does not create a secure account.",
+  "authContinue": "Continue",
+  "authInvalidPhone": "Enter a valid phone number with its country calling code.",
+  "authUnexpectedFailure": "Something went wrong. Please try again.",
+  "authSignOut": "Sign out",
+  "onboardingEyebrow": "TRACK YOUR TRIP",
+  "onboardingTitle": "Know exactly where you are",
+  "onboardingDescription": "Follow your ride live, see your driver, and get notified at every stage.",
+  "onboardingTripsTitle": "Your trips, all in one place",
+  "onboardingTripsDescription": "Find the details you need before, during, and after every journey.",
+  "onboardingSafeTitle": "Travel with confidence",
+  "onboardingSafeDescription": "Stay informed from pickup to arrival with helpful trip updates.",
+  "onboardingSwitchLanguage": "العربية",
+  "onboardingGetStarted": "Get started",
+  "onboardingAlreadyAccount": "Continue with phone number",
+  "onboardingPageIndicator": "Page {current} of {total}",
+  "@onboardingPageIndicator": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  }
+}

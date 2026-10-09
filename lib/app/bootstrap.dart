@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+class MissingSupabasePublishableKeyException implements Exception {
+  const MissingSupabasePublishableKeyException();
+}
+
 Future<void> bootstrap() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -8,14 +12,13 @@ Future<void> bootstrap() async {
     'SUPABASE_URL',
     defaultValue: 'https://lyhjolghswirstktvzfy.supabase.co',
   );
-  const supabasePublishableKey =
-      String.fromEnvironment('SUPABASE_PUBLISHABLE_KEY');
+  const supabasePublishableKey = String.fromEnvironment(
+    'SUPABASE_PUBLISHABLE_KEY',
+    defaultValue: 'sb_publishable_r9pIncAymqo-hs9igmSPoA_9T0HJUGz',
+  );
 
   if (supabasePublishableKey.isEmpty) {
-    throw StateError(
-      'Missing SUPABASE_PUBLISHABLE_KEY. '
-      'Pass it with --dart-define=SUPABASE_PUBLISHABLE_KEY=...',
-    );
+    throw const MissingSupabasePublishableKeyException();
   }
 
   await Supabase.initialize(

@@ -131,12 +131,14 @@ class AppIconButton extends StatelessWidget {
     required this.semanticLabel,
     required this.onPressed,
     this.isSelected = false,
+    this.matchTextDirection = false,
   });
 
   final IconData icon;
   final String semanticLabel;
   final VoidCallback? onPressed;
   final bool isSelected;
+  final bool matchTextDirection;
 
   @override
   Widget build(BuildContext context) {
@@ -150,11 +152,24 @@ class AppIconButton extends StatelessWidget {
         height: AppSizes.minimumTapTarget,
       ),
       isSelected: isSelected,
-      selectedIcon: Icon(icon, color: colorScheme.primary),
+      selectedIcon: Icon(
+        _directionalIcon,
+        color: colorScheme.primary,
+      ),
       icon: Icon(
-        icon,
+        _directionalIcon,
         color: isSelected ? colorScheme.primary : colorScheme.onSurfaceVariant,
       ),
+    );
+  }
+
+  IconData get _directionalIcon {
+    if (!matchTextDirection) return icon;
+    return IconData(
+      icon.codePoint,
+      fontFamily: icon.fontFamily,
+      fontPackage: icon.fontPackage,
+      matchTextDirection: true,
     );
   }
 }

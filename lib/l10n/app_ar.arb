@@ -1,0 +1,34 @@
+{
+  "@@locale": "ar",
+  "authPhoneTitle": "المتابعة برقم الهاتف",
+  "authPhoneSubtitle": "أدخل رقم هاتفك للمتابعة.",
+  "authPhoneLabel": "رقم الهاتف",
+  "authPhoneHint": "أدخل رقم الهاتف",
+  "authPhoneHelp": "أدخل مفتاح الدولة. لن يُرسل أي رمز في هذه النسخة التجريبية.",
+  "authDemoNotice": "نسخة تجريبية فقط: لم يتم التحقق من الرقم ولا يتم إنشاء حساب آمن.",
+  "authContinue": "متابعة",
+  "authInvalidPhone": "أدخل رقم هاتف صحيحًا مع مفتاح الدولة.",
+  "authUnexpectedFailure": "حدث خطأ ما. حاول مجددًا.",
+  "authSignOut": "تسجيل الخروج",
+  "onboardingEyebrow": "تابع رحلتك",
+  "onboardingTitle": "اعرف موقعك بدقة",
+  "onboardingDescription": "تابع رحلتك مباشرة، وتعرّف على السائق، واحصل على تحديثات في كل مرحلة.",
+  "onboardingTripsTitle": "كل رحلاتك في مكان واحد",
+  "onboardingTripsDescription": "اعثر على التفاصيل التي تحتاجها قبل كل رحلة وأثناءها وبعدها.",
+  "onboardingSafeTitle": "سافر براحة واطمئنان",
+  "onboardingSafeDescription": "ابقَ على اطلاع من نقطة الانطلاق حتى الوصول.",
+  "onboardingSwitchLanguage": "English",
+  "onboardingGetStarted": "ابدأ الآن",
+  "onboardingAlreadyAccount": "المتابعة برقم الهاتف",
+  "onboardingPageIndicator": "الصفحة {current} من {total}",
+  "@onboardingPageIndicator": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  }
+}
