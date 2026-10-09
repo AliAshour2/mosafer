@@ -3,13 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app/app.dart';
 import 'app/bootstrap.dart';
+import 'core/config/app_config.dart';
 import 'core/design_system/app_design_system.dart';
 import 'theme/app_theme.dart';
 
 Future<void> main() async {
   try {
     await bootstrap();
-  } on MissingSupabasePublishableKeyException {
+  } on AppConfigurationException {
     runApp(const SupabaseConfigurationErrorApp());
     return;
   }
@@ -31,11 +32,10 @@ class SupabaseConfigurationErrorApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       home: const Scaffold(
         body: AppErrorState(
-          title: 'Supabase configuration missing',
-          message:
-              'Set SUPABASE_PUBLISHABLE_KEY and restart the app. For example:\n'
-              'flutter run -d chrome '
-              'sb_publishable_r9pIncAymqo-hs9igmSPoA_9T0HJUGz',
+          title: 'Application configuration missing or invalid',
+          message: 'Create a local configuration file using '
+              'config/app_config.example.json and follow the setup '
+              'instructions in README.md.',
         ),
       ),
     );

@@ -5,6 +5,7 @@ String authErrorMessage(AppLocalizations l10n, Object? error) {
   if (error is! AuthFailure) return l10n.authUnexpectedFailure;
 
   return switch (error.type) {
+    AuthFailureType.invalidName => l10n.authInvalidName,
     AuthFailureType.invalidPhone => l10n.authInvalidPhone,
   };
 }

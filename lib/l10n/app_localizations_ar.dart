@@ -7,10 +7,25 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get authPhoneTitle => 'المتابعة برقم الهاتف';
+  String get authGoogleTitle => 'أنشئ حسابك أو سجّل الدخول';
 
   @override
-  String get authPhoneSubtitle => 'أدخل رقم هاتفك للمتابعة.';
+  String get authGoogleSubtitle => 'تابع بأمان باستخدام Google. أضف اسمك ورقم هاتفك عند إنشاء حساب جديد.';
+
+  @override
+  String get authGoogleAction => 'المتابعة باستخدام Google';
+
+  @override
+  String get authProfileTitle => 'بعض التفاصيل';
+
+  @override
+  String get authProfileSubtitle => 'أكد اسمك وأضف رقم الهاتف الذي يمكننا التواصل معك من خلاله.';
+
+  @override
+  String get authNameLabel => 'الاسم الكامل';
+
+  @override
+  String get authNameHint => 'أدخل اسمك';
 
   @override
   String get authPhoneLabel => 'رقم الهاتف';
@@ -19,16 +34,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String get authPhoneHint => 'أدخل رقم الهاتف';
 
   @override
-  String get authPhoneHelp => 'أدخل مفتاح الدولة. لن يُرسل أي رمز في هذه النسخة التجريبية.';
+  String get authPhoneNotVerifiedNotice => 'لن يتم إرسال رمز تحقق. سيُحفظ رقم الهاتف على أنه غير موثّق.';
 
   @override
-  String get authDemoNotice => 'نسخة تجريبية فقط: لم يتم التحقق من الرقم ولا يتم إنشاء حساب آمن.';
-
-  @override
-  String get authContinue => 'متابعة';
+  String get authInvalidName => 'أدخل اسمك (بحد أقصى 100 حرف).';
 
   @override
   String get authInvalidPhone => 'أدخل رقم هاتف صحيحًا مع مفتاح الدولة.';
+
+  @override
+  String get authSaveProfile => 'حفظ ومتابعة';
+
+  @override
+  String get authProfileLoadError => 'تعذر تحميل ملفك الشخصي. تحقق من اتصالك وحاول مجددًا.';
+
+  @override
+  String get authRetry => 'إعادة المحاولة';
 
   @override
   String get authUnexpectedFailure => 'حدث خطأ ما. حاول مجددًا.';
@@ -140,7 +161,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get onboardingGetStarted => 'ابدأ الآن';
 
   @override
-  String get onboardingAlreadyAccount => 'المتابعة برقم الهاتف';
+  String get onboardingContinue => 'متابعة';
+
+  @override
+  String get onboardingAlreadyAccount => 'المتابعة باستخدام Google';
 
   @override
   String onboardingPageIndicator(int current, int total) {

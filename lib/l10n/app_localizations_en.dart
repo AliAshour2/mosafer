@@ -7,28 +7,49 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get authPhoneTitle => 'Continue with your phone';
+  String get authGoogleTitle => 'Create your account or sign in';
 
   @override
-  String get authPhoneSubtitle => 'Enter your phone number to continue.';
+  String get authGoogleSubtitle => 'Continue securely with Google. New users will add their name and phone number.';
+
+  @override
+  String get authGoogleAction => 'Continue with Google';
+
+  @override
+  String get authProfileTitle => 'A few details';
+
+  @override
+  String get authProfileSubtitle => 'Confirm your name and add the phone number we can reach you on.';
+
+  @override
+  String get authNameLabel => 'Full name';
+
+  @override
+  String get authNameHint => 'Enter your name';
 
   @override
   String get authPhoneLabel => 'Phone number';
 
   @override
-  String get authPhoneHint => 'Enter phone number';
+  String get authPhoneHint => 'Enter phone number with country code';
 
   @override
-  String get authPhoneHelp => 'Include your country calling code. No code will be sent in this demo.';
+  String get authPhoneNotVerifiedNotice => 'No verification code will be sent. This phone number will be saved as unverified.';
 
   @override
-  String get authDemoNotice => 'Demo only: this number is not verified and does not create a secure account.';
-
-  @override
-  String get authContinue => 'Continue';
+  String get authInvalidName => 'Enter your name (up to 100 characters).';
 
   @override
   String get authInvalidPhone => 'Enter a valid phone number with its country calling code.';
+
+  @override
+  String get authSaveProfile => 'Save and continue';
+
+  @override
+  String get authProfileLoadError => 'We couldn\'t load your profile. Check your connection and try again.';
+
+  @override
+  String get authRetry => 'Retry';
 
   @override
   String get authUnexpectedFailure => 'Something went wrong. Please try again.';
@@ -140,7 +161,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get onboardingGetStarted => 'Get started';
 
   @override
-  String get onboardingAlreadyAccount => 'Continue with phone number';
+  String get onboardingContinue => 'Continue';
+
+  @override
+  String get onboardingAlreadyAccount => 'Continue with Google';
 
   @override
   String onboardingPageIndicator(int current, int total) {

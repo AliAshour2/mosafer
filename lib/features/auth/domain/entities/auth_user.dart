@@ -1,9 +1,11 @@
 class AuthUser {
   const AuthUser({
     required this.id,
-    this.phone,
+    this.email,
+    this.displayName,
   });
 
   final String id;
-  final String? phone;
+  final String? email;
+  final String? displayName;
 }

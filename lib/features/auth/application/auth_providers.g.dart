@@ -6,7 +6,7 @@ part of 'auth_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authRepositoryHash() => r'8577935032a3221b56a6e5bb26b0cc2dc0ba916b';
+String _$authRepositoryHash() => r'49b4bef701d64bd4f2cc06473188073a4786160f';
 
 /// See also [authRepository].
 @ProviderFor(authRepository)
@@ -39,7 +39,26 @@ final authStateProvider = AutoDisposeStreamProvider<AuthUser?>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef AuthStateRef = AutoDisposeStreamProviderRef<AuthUser?>;
-String _$authControllerHash() => r'606e88c7ffe9d144c78feacdd83705108c891ed1';
+String _$currentUserProfileHash() =>
+    r'08f510669902db351a7a07c5bdfc83452f3aa526';
+
+/// See also [currentUserProfile].
+@ProviderFor(currentUserProfile)
+final currentUserProfileProvider =
+    AutoDisposeFutureProvider<UserProfile?>.internal(
+  currentUserProfile,
+  name: r'currentUserProfileProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$currentUserProfileHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef CurrentUserProfileRef = AutoDisposeFutureProviderRef<UserProfile?>;
+String _$authControllerHash() => r'54b9be3e62f5b41ee0d7dfbb4669afbaf823d2ef';
 
 /// See also [AuthController].
 @ProviderFor(AuthController)

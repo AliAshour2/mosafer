@@ -127,7 +127,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   AppButton(
                     label: _page == titles.length - 1
                         ? l10n.onboardingGetStarted
-                        : l10n.authContinue,
+                        : l10n.onboardingContinue,
                     expand: true,
                     onPressed: _continue,
                   ),

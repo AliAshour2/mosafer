@@ -19,6 +19,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
     final authAction = ref.watch(authControllerProvider);
+    final profile = ref.watch(currentUserProfileProvider).valueOrNull;
     final theme = Theme.of(context);
 
     return Scaffold(
@@ -41,7 +42,7 @@ class HomeScreen extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              l10n.homeGreeting,
+                              profile?.fullName ?? l10n.homeGreeting,
                               style: theme.textTheme.headlineSmall,
                             ),
                             const SizedBox(height: AppSpacing.xs),

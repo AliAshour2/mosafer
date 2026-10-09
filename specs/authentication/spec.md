@@ -1,39 +1,42 @@
-# Phone-only demo entry specification
+# Google authentication and profile specification
 
 ## Purpose
 
-Allow a traveler to enter the app using only a phone number while real
-authentication and phone verification are deferred.
+Allow a traveler to authenticate with Google through Supabase, then collect
+and save their name and phone number before entering the app.
 
 ## Scope and decisions
 
-- The first-run welcome carousel introduces the travel experience.
-- The entry screen has one phone-number field and a continue action.
-- The user enters their own number; no country code or phone prefix is
-  pre-populated.
-- The phone number is normalized and validated as an international number with
-  a country calling code.
-- Submitting creates only an in-memory demo session. It does not call Supabase
-  Auth, send a verification code, or establish a verified identity.
-- The demo session is lost when the app process restarts.
-- Sign-out clears the in-memory demo session.
+- Google is the only sign-up/sign-in method. Supabase creates an account on
+  first Google sign-in and signs in existing users.
+- After authentication, users without a complete profile must provide their
+  name and phone number before reaching Home.
+- Prefill the name from Google when available and let the user edit it.
+- Normalize and validate the phone as an international number with a country
+  calling code; do not prefill a country prefix.
+- Do not send an SMS code or claim the phone number is verified.
+- Save profile data in `public.profiles`, linked to the authenticated user.
+- Returning users with a saved profile go directly to Home.
+- Sign-out clears the Supabase session and returns to onboarding.
 
 ## Data and security
 
-- Demo phone data is held in process memory only.
-- Do not treat demo sessions or entered phone numbers as verified identity.
-- Do not use demo identity to authorize protected backend operations.
-- Real Supabase authentication and access-control checks must be implemented
-  before enabling protected production data.
+- The app must never contain a Google client secret or Supabase service-role
+  key.
+- Enable RLS on `public.profiles`; users may only read, insert, and update the
+  row whose ID matches their Supabase auth user ID.
+- Treat the collected phone number as unverified.
+- Configure Google OAuth credentials and app redirect URLs in the Google and
+  Supabase dashboards before testing real sign-in.
 
 ## Acceptance criteria
 
-- The sign-in/sign-up email and password methods are removed.
-- The entry screen contains only one phone-number input.
-- No country code is prefilled.
-- No code is sent and no verification step is shown.
-- A valid international number opens the demo app; invalid numbers show a
-  localized validation error.
-- The UI clearly states that demo numbers are not verified and do not create a
-  secure account.
-- Sign-out clears the local session and returns to onboarding.
+- Only the Google authentication button is shown on the entry screen.
+- First-time Google users complete a required name and phone form; the name is
+  prefilled when Google provides it.
+- The phone input has no prefilled country code and requires a valid
+  international number.
+- No SMS code is sent; the phone is clearly labeled as unverified.
+- A completed profile opens Home, and a returning complete profile opens Home
+  without repeating setup.
+- Sign-out clears the Supabase session and returns to onboarding.

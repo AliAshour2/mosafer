@@ -95,17 +95,47 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
-  /// No description provided for @authPhoneTitle.
+  /// No description provided for @authGoogleTitle.
   ///
   /// In en, this message translates to:
-  /// **'Continue with your phone'**
-  String get authPhoneTitle;
+  /// **'Create your account or sign in'**
+  String get authGoogleTitle;
 
-  /// No description provided for @authPhoneSubtitle.
+  /// No description provided for @authGoogleSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Enter your phone number to continue.'**
-  String get authPhoneSubtitle;
+  /// **'Continue securely with Google. New users will add their name and phone number.'**
+  String get authGoogleSubtitle;
+
+  /// No description provided for @authGoogleAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Google'**
+  String get authGoogleAction;
+
+  /// No description provided for @authProfileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A few details'**
+  String get authProfileTitle;
+
+  /// No description provided for @authProfileSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your name and add the phone number we can reach you on.'**
+  String get authProfileSubtitle;
+
+  /// No description provided for @authNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Full name'**
+  String get authNameLabel;
+
+  /// No description provided for @authNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your name'**
+  String get authNameHint;
 
   /// No description provided for @authPhoneLabel.
   ///
@@ -116,32 +146,44 @@ abstract class AppLocalizations {
   /// No description provided for @authPhoneHint.
   ///
   /// In en, this message translates to:
-  /// **'Enter phone number'**
+  /// **'Enter phone number with country code'**
   String get authPhoneHint;
 
-  /// No description provided for @authPhoneHelp.
+  /// No description provided for @authPhoneNotVerifiedNotice.
   ///
   /// In en, this message translates to:
-  /// **'Include your country calling code. No code will be sent in this demo.'**
-  String get authPhoneHelp;
+  /// **'No verification code will be sent. This phone number will be saved as unverified.'**
+  String get authPhoneNotVerifiedNotice;
 
-  /// No description provided for @authDemoNotice.
+  /// No description provided for @authInvalidName.
   ///
   /// In en, this message translates to:
-  /// **'Demo only: this number is not verified and does not create a secure account.'**
-  String get authDemoNotice;
-
-  /// No description provided for @authContinue.
-  ///
-  /// In en, this message translates to:
-  /// **'Continue'**
-  String get authContinue;
+  /// **'Enter your name (up to 100 characters).'**
+  String get authInvalidName;
 
   /// No description provided for @authInvalidPhone.
   ///
   /// In en, this message translates to:
   /// **'Enter a valid phone number with its country calling code.'**
   String get authInvalidPhone;
+
+  /// No description provided for @authSaveProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Save and continue'**
+  String get authSaveProfile;
+
+  /// No description provided for @authProfileLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'We couldn\'t load your profile. Check your connection and try again.'**
+  String get authProfileLoadError;
+
+  /// No description provided for @authRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get authRetry;
 
   /// No description provided for @authUnexpectedFailure.
   ///
@@ -353,10 +395,16 @@ abstract class AppLocalizations {
   /// **'Get started'**
   String get onboardingGetStarted;
 
+  /// No description provided for @onboardingContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get onboardingContinue;
+
   /// No description provided for @onboardingAlreadyAccount.
   ///
   /// In en, this message translates to:
-  /// **'Continue with phone number'**
+  /// **'Continue with Google'**
   String get onboardingAlreadyAccount;
 
   /// No description provided for @onboardingPageIndicator.

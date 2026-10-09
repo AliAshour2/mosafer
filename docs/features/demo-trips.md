@@ -5,9 +5,8 @@ grants the `anon` and `authenticated` Data API roles read access only. RLS
 restricts results to future, scheduled rows marked `is_demo`; client roles
 cannot insert, update, or delete trip rows.
 
-The demo phone flow is still a local, in-memory session. It is not Supabase
-authentication and does not identify a user. These publicly readable demo
-trips must not be treated as personal bookings or verified inventory.
+Users authenticate with Google through Supabase. Demo trips are shared public
+sample data; they are not personal bookings or verified inventory.
 
 ## Deploying
 

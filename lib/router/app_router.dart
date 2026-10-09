@@ -5,6 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../core/constants/app_routes.dart';
 import '../features/auth/application/auth_providers.dart';
 import '../features/auth/presentation/pages/auth_sign_in_page.dart';
+import '../features/auth/presentation/pages/profile_completion_page.dart';
 import '../features/home/presentation/screens/home_screen.dart';
 import '../features/shared/presentation/screens/onboarding_screen.dart';
 import '../features/shared/presentation/screens/placeholder_screen.dart';
@@ -20,14 +21,23 @@ GoRouter appRouter(Ref ref) {
       final isAuthRoute = AppRoutes.isAuthRoute(state.matchedLocation);
       final isOnboardingRoute =
           AppRoutes.isOnboardingRoute(state.matchedLocation);
+      final isProfileCompletionRoute =
+          AppRoutes.isProfileCompletionRoute(state.matchedLocation);
       final user = authRepository.currentUser;
       final isSignedIn = user != null;
 
       if (!isSignedIn && !isAuthRoute && !isOnboardingRoute) {
         return AppRoutes.onboarding;
       }
-      if (isSignedIn && (isAuthRoute || isOnboardingRoute)) {
-        return AppRoutes.home;
+      if (isSignedIn) {
+        final profile = ref.read(currentUserProfileProvider);
+        if (profile.valueOrNull != null) {
+          if (isAuthRoute || isOnboardingRoute || isProfileCompletionRoute) {
+            return AppRoutes.home;
+          }
+          return null;
+        }
+        if (!isProfileCompletionRoute) return AppRoutes.completeProfile;
       }
       return null;
     },
@@ -39,6 +49,10 @@ GoRouter appRouter(Ref ref) {
       GoRoute(
         path: AppRoutes.auth,
         builder: (context, state) => const AuthSignInPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.completeProfile,
+        builder: (context, state) => const ProfileCompletionPage(),
       ),
       GoRoute(
         path: AppRoutes.home,
@@ -67,7 +81,13 @@ GoRouter appRouter(Ref ref) {
     ],
   );
 
-  ref.listen(authStateProvider, (_, __) => router.refresh());
+  ref.listen(authStateProvider, (previous, next) {
+    if (previous?.valueOrNull?.id != next.valueOrNull?.id) {
+      ref.invalidate(currentUserProfileProvider);
+    }
+    router.refresh();
+  });
+  ref.listen(currentUserProfileProvider, (_, __) => router.refresh());
   ref.onDispose(router.dispose);
   return router;
 }

@@ -1,6 +1,12 @@
 class AuthInputValidator {
   AuthInputValidator._();
 
+  static String? normalizeName(String? name) {
+    if (name == null || name.trim().isEmpty) return null;
+    final normalized = name.trim().replaceAll(RegExp(r'\s+'), ' ');
+    return normalized.length <= 100 ? normalized : null;
+  }
+
   static String? normalizePhone(String? phone) {
     if (phone == null || phone.trim().isEmpty) return null;
     return _normalizeDigits(phone).replaceAll(RegExp(r'[\s().-]'), '');

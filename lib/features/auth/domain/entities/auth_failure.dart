@@ -1,4 +1,5 @@
 enum AuthFailureType {
+  invalidName,
   invalidPhone,
 }
 

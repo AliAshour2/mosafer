@@ -2,6 +2,7 @@ class AppRoutes {
   AppRoutes._();
 
   static const auth = '/auth/sign-in';
+  static const completeProfile = '/auth/complete-profile';
   static const onboarding = '/onboarding';
   static const home = '/home';
   static const trips = '/trips';
@@ -16,5 +17,9 @@ class AppRoutes {
 
   static bool isOnboardingRoute(String location) {
     return location == onboarding;
+  }
+
+  static bool isProfileCompletionRoute(String location) {
+    return location == completeProfile;
   }
 }
