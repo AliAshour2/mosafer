@@ -10,6 +10,43 @@
   "authInvalidPhone": "Enter a valid phone number with its country calling code.",
   "authUnexpectedFailure": "Something went wrong. Please try again.",
   "authSignOut": "Sign out",
+  "homeGreeting": "Mosafer",
+  "homeWelcome": "Your next journey starts here.",
+  "homeSearchTitle": "Where are you going?",
+  "homeSearchSubtitle": "Book a seat on a scheduled coach.",
+  "homeFrom": "From",
+  "homeTo": "To",
+  "homeAlexandria": "Alexandria",
+  "homeCairo": "Cairo",
+  "homeGiza": "Giza",
+  "homeToday": "Today",
+  "homeAnyTime": "Any time",
+  "homeSearchTrips": "Search trips",
+  "homeUpcoming": "Upcoming",
+  "homeSeeAll": "See all",
+  "homeDepartureDetails": "{date} · {time}",
+  "@homeDepartureDetails": {
+    "placeholders": {
+      "date": {},
+      "time": {}
+    }
+  },
+  "homeTripStatus": "Upcoming",
+  "homeTripImageDescription": "Alexandria and Cairo city views",
+  "homePopularRoutes": "Popular routes",
+  "homeSeatsRemaining": "{count} seats left",
+  "@homeSeatsRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeNoUpcomingTrips": "No upcoming trips right now.",
+  "homeNoPopularRoutes": "Popular routes will appear here.",
+  "homeTripsLoadTitle": "Trips are temporarily unavailable",
+  "homeTripsLoadError": "We couldn't load demo trips. Check your connection and try again.",
+  "homeRetry": "Retry",
   "onboardingEyebrow": "TRACK YOUR TRIP",
   "onboardingTitle": "Know exactly where you are",
   "onboardingDescription": "Follow your ride live, see your driver, and get notified at every stage.",

@@ -37,6 +37,82 @@ class AppLocalizationsEn extends AppLocalizations {
   String get authSignOut => 'Sign out';
 
   @override
+  String get homeGreeting => 'Mosafer';
+
+  @override
+  String get homeWelcome => 'Your next journey starts here.';
+
+  @override
+  String get homeSearchTitle => 'Where are you going?';
+
+  @override
+  String get homeSearchSubtitle => 'Book a seat on a scheduled coach.';
+
+  @override
+  String get homeFrom => 'From';
+
+  @override
+  String get homeTo => 'To';
+
+  @override
+  String get homeAlexandria => 'Alexandria';
+
+  @override
+  String get homeCairo => 'Cairo';
+
+  @override
+  String get homeGiza => 'Giza';
+
+  @override
+  String get homeToday => 'Today';
+
+  @override
+  String get homeAnyTime => 'Any time';
+
+  @override
+  String get homeSearchTrips => 'Search trips';
+
+  @override
+  String get homeUpcoming => 'Upcoming';
+
+  @override
+  String get homeSeeAll => 'See all';
+
+  @override
+  String homeDepartureDetails(Object date, Object time) {
+    return '$date · $time';
+  }
+
+  @override
+  String get homeTripStatus => 'Upcoming';
+
+  @override
+  String get homeTripImageDescription => 'Alexandria and Cairo city views';
+
+  @override
+  String get homePopularRoutes => 'Popular routes';
+
+  @override
+  String homeSeatsRemaining(int count) {
+    return '$count seats left';
+  }
+
+  @override
+  String get homeNoUpcomingTrips => 'No upcoming trips right now.';
+
+  @override
+  String get homeNoPopularRoutes => 'Popular routes will appear here.';
+
+  @override
+  String get homeTripsLoadTitle => 'Trips are temporarily unavailable';
+
+  @override
+  String get homeTripsLoadError => 'We couldn\'t load demo trips. Check your connection and try again.';
+
+  @override
+  String get homeRetry => 'Retry';
+
+  @override
   String get onboardingEyebrow => 'TRACK YOUR TRIP';
 
   @override

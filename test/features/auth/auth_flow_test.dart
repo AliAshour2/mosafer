@@ -3,13 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mosafer/app/app.dart';
 import 'package:mosafer/core/design_system/components/buttons/app_button.dart';
-import 'package:mosafer/core/design_system/components/feedback/app_empty_state.dart';
 import 'package:mosafer/features/auth/application/auth_providers.dart';
 import 'package:mosafer/features/auth/data/repositories/demo_auth_repository.dart';
 import 'package:mosafer/features/auth/domain/entities/auth_failure.dart';
 import 'package:mosafer/features/auth/presentation/auth_error_message.dart';
-import 'package:mosafer/features/todos/domain/entities/todo.dart';
-import 'package:mosafer/features/todos/presentation/providers/todos_provider.dart';
+import 'package:mosafer/features/home/application/trip_providers.dart';
+import 'package:mosafer/features/home/domain/entities/trip.dart';
 import 'package:mosafer/l10n/app_localizations_en.dart';
 
 void main() {
@@ -111,7 +110,7 @@ void main() {
 
     expect(repository.currentUser?.phone, '+201012345678');
     expect(repository.currentUser?.id, 'temporary-demo-session');
-    expect(find.byType(AppEmptyState), findsOneWidget);
+    expect(find.text('Where are you going?'), findsOneWidget);
 
     await tester.tap(find.byTooltip('Sign out'));
     await tester.pumpAndSettle();
@@ -125,8 +124,20 @@ Widget _app(DemoAuthRepository repository) {
   return ProviderScope(
     overrides: [
       authRepositoryProvider.overrideWith((ref) => repository),
-      todosProvider.overrideWith((ref) async => const <Todo>[]),
+      upcomingTripsProvider.overrideWith((ref) async => [_demoTrip()]),
     ],
     child: const MosaferApp(),
+  );
+}
+
+Trip _demoTrip() {
+  return Trip(
+    id: 'demo-trip',
+    origin: 'Alexandria',
+    destination: 'Cairo',
+    departureAt: DateTime.now().add(const Duration(days: 3)),
+    price: 250,
+    currency: 'EGP',
+    seatsAvailable: 5,
   );
 }

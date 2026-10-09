@@ -155,6 +155,150 @@ abstract class AppLocalizations {
   /// **'Sign out'**
   String get authSignOut;
 
+  /// No description provided for @homeGreeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Mosafer'**
+  String get homeGreeting;
+
+  /// No description provided for @homeWelcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Your next journey starts here.'**
+  String get homeWelcome;
+
+  /// No description provided for @homeSearchTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Where are you going?'**
+  String get homeSearchTitle;
+
+  /// No description provided for @homeSearchSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Book a seat on a scheduled coach.'**
+  String get homeSearchSubtitle;
+
+  /// No description provided for @homeFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get homeFrom;
+
+  /// No description provided for @homeTo.
+  ///
+  /// In en, this message translates to:
+  /// **'To'**
+  String get homeTo;
+
+  /// No description provided for @homeAlexandria.
+  ///
+  /// In en, this message translates to:
+  /// **'Alexandria'**
+  String get homeAlexandria;
+
+  /// No description provided for @homeCairo.
+  ///
+  /// In en, this message translates to:
+  /// **'Cairo'**
+  String get homeCairo;
+
+  /// No description provided for @homeGiza.
+  ///
+  /// In en, this message translates to:
+  /// **'Giza'**
+  String get homeGiza;
+
+  /// No description provided for @homeToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get homeToday;
+
+  /// No description provided for @homeAnyTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Any time'**
+  String get homeAnyTime;
+
+  /// No description provided for @homeSearchTrips.
+  ///
+  /// In en, this message translates to:
+  /// **'Search trips'**
+  String get homeSearchTrips;
+
+  /// No description provided for @homeUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get homeUpcoming;
+
+  /// No description provided for @homeSeeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See all'**
+  String get homeSeeAll;
+
+  /// No description provided for @homeDepartureDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'{date} · {time}'**
+  String homeDepartureDetails(Object date, Object time);
+
+  /// No description provided for @homeTripStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get homeTripStatus;
+
+  /// No description provided for @homeTripImageDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Alexandria and Cairo city views'**
+  String get homeTripImageDescription;
+
+  /// No description provided for @homePopularRoutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular routes'**
+  String get homePopularRoutes;
+
+  /// No description provided for @homeSeatsRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} seats left'**
+  String homeSeatsRemaining(int count);
+
+  /// No description provided for @homeNoUpcomingTrips.
+  ///
+  /// In en, this message translates to:
+  /// **'No upcoming trips right now.'**
+  String get homeNoUpcomingTrips;
+
+  /// No description provided for @homeNoPopularRoutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular routes will appear here.'**
+  String get homeNoPopularRoutes;
+
+  /// No description provided for @homeTripsLoadTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Trips are temporarily unavailable'**
+  String get homeTripsLoadTitle;
+
+  /// No description provided for @homeTripsLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'We couldn\'t load demo trips. Check your connection and try again.'**
+  String get homeTripsLoadError;
+
+  /// No description provided for @homeRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get homeRetry;
+
   /// No description provided for @onboardingEyebrow.
   ///
   /// In en, this message translates to:

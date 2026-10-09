@@ -10,6 +10,43 @@
   "authInvalidPhone": "أدخل رقم هاتف صحيحًا مع مفتاح الدولة.",
   "authUnexpectedFailure": "حدث خطأ ما. حاول مجددًا.",
   "authSignOut": "تسجيل الخروج",
+  "homeGreeting": "مسافر",
+  "homeWelcome": "رحلتك القادمة تبدأ من هنا.",
+  "homeSearchTitle": "إلى أين تريد الذهاب؟",
+  "homeSearchSubtitle": "احجز مقعدًا في حافلة بين المدن.",
+  "homeFrom": "من",
+  "homeTo": "إلى",
+  "homeAlexandria": "الإسكندرية",
+  "homeCairo": "القاهرة",
+  "homeGiza": "الجيزة",
+  "homeToday": "اليوم",
+  "homeAnyTime": "أي وقت",
+  "homeSearchTrips": "ابحث عن رحلات",
+  "homeUpcoming": "الرحلات القادمة",
+  "homeSeeAll": "عرض الكل",
+  "homeDepartureDetails": "{date} · {time}",
+  "@homeDepartureDetails": {
+    "placeholders": {
+      "date": {},
+      "time": {}
+    }
+  },
+  "homeTripStatus": "قادمة",
+  "homeTripImageDescription": "مناظر لمدينتي الإسكندرية والقاهرة",
+  "homePopularRoutes": "المسارات الشائعة",
+  "homeSeatsRemaining": "متبقي {count} مقاعد",
+  "@homeSeatsRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeNoUpcomingTrips": "لا توجد رحلات قادمة حاليًا.",
+  "homeNoPopularRoutes": "ستظهر المسارات الشائعة هنا.",
+  "homeTripsLoadTitle": "الرحلات غير متاحة مؤقتًا",
+  "homeTripsLoadError": "تعذر تحميل الرحلات التجريبية. تحقق من اتصالك وحاول مجددًا.",
+  "homeRetry": "إعادة المحاولة",
   "onboardingEyebrow": "تابع رحلتك",
   "onboardingTitle": "اعرف موقعك بدقة",
   "onboardingDescription": "تابع رحلتك مباشرة، وتعرّف على السائق، واحصل على تحديثات في كل مرحلة.",

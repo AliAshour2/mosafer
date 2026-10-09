@@ -37,6 +37,82 @@ class AppLocalizationsAr extends AppLocalizations {
   String get authSignOut => 'تسجيل الخروج';
 
   @override
+  String get homeGreeting => 'مسافر';
+
+  @override
+  String get homeWelcome => 'رحلتك القادمة تبدأ من هنا.';
+
+  @override
+  String get homeSearchTitle => 'إلى أين تريد الذهاب؟';
+
+  @override
+  String get homeSearchSubtitle => 'احجز مقعدًا في حافلة بين المدن.';
+
+  @override
+  String get homeFrom => 'من';
+
+  @override
+  String get homeTo => 'إلى';
+
+  @override
+  String get homeAlexandria => 'الإسكندرية';
+
+  @override
+  String get homeCairo => 'القاهرة';
+
+  @override
+  String get homeGiza => 'الجيزة';
+
+  @override
+  String get homeToday => 'اليوم';
+
+  @override
+  String get homeAnyTime => 'أي وقت';
+
+  @override
+  String get homeSearchTrips => 'ابحث عن رحلات';
+
+  @override
+  String get homeUpcoming => 'الرحلات القادمة';
+
+  @override
+  String get homeSeeAll => 'عرض الكل';
+
+  @override
+  String homeDepartureDetails(Object date, Object time) {
+    return '$date · $time';
+  }
+
+  @override
+  String get homeTripStatus => 'قادمة';
+
+  @override
+  String get homeTripImageDescription => 'مناظر لمدينتي الإسكندرية والقاهرة';
+
+  @override
+  String get homePopularRoutes => 'المسارات الشائعة';
+
+  @override
+  String homeSeatsRemaining(int count) {
+    return 'متبقي $count مقاعد';
+  }
+
+  @override
+  String get homeNoUpcomingTrips => 'لا توجد رحلات قادمة حاليًا.';
+
+  @override
+  String get homeNoPopularRoutes => 'ستظهر المسارات الشائعة هنا.';
+
+  @override
+  String get homeTripsLoadTitle => 'الرحلات غير متاحة مؤقتًا';
+
+  @override
+  String get homeTripsLoadError => 'تعذر تحميل الرحلات التجريبية. تحقق من اتصالك وحاول مجددًا.';
+
+  @override
+  String get homeRetry => 'إعادة المحاولة';
+
+  @override
   String get onboardingEyebrow => 'تابع رحلتك';
 
   @override
