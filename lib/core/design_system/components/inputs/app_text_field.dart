@@ -80,7 +80,7 @@ class AppTextField extends StatelessWidget {
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         fillColor: enabled
-            ? theme.colorScheme.surface
+            ? theme.inputDecorationTheme.fillColor ?? theme.colorScheme.surface
             : semanticColors.disabledBackground,
       ),
     );

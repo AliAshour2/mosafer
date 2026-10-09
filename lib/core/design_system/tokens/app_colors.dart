@@ -3,34 +3,54 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
-  static const primary = Color(0xFF00A88F);
-  static const primaryDark = Color(0xFF008F7A);
-  static const primaryLight = Color(0xFFE6F7F4);
-  static const onPrimary = Color(0xFF003A32);
-  static const onPrimaryContainer = primaryDark;
+  static const ink = Color(0xFF000000);
+  static const surface = Color(0xFFFFFFFF);
+  static const surfaceMuted = Color(0xFFF6F6F6);
+  static const brand = Color(0xFF009A62);
+  static const brandDark = Color(0xFF007A4D);
+  static const brandDarker = Color(0xFF00603D);
+  static const brandLight = Color(0xFFE4F5EE);
+  static const brandHover = Color(0xFF008A57);
+  static const brandPressed = brandDark;
+
+  static const gray50 = Color(0xFFF6F6F6);
+  static const gray100 = Color(0xFFEEEEEE);
+  static const gray200 = Color(0xFFE2E2E2);
+  static const gray300 = Color(0xFFCBCBCB);
+  static const gray400 = Color(0xFFAFAFAF);
+  static const gray500 = Color(0xFF757575);
+  static const gray600 = Color(0xFF545454);
+  static const gray700 = Color(0xFF333333);
+  static const gray800 = Color(0xFF1F1F1F);
+  static const gray900 = ink;
+
+  static const primary = brand;
+  static const primaryDark = brandDark;
+  static const primaryLight = brandLight;
+  static const onPrimary = ink;
+  static const onPrimaryContainer = brandDarker;
   static const onSecondary = Color(0xFFFFFFFF);
   static const onError = Color(0xFFFFFFFF);
   static const onErrorContainer = Color(0xFF7F1D1D);
-  static const darkPrimary = Color(0xFF50D5BF);
-  static const darkOnPrimary = Color(0xFF00372F);
-  static const darkPrimaryOnContainer = Color(0xFFA9F2E3);
+  static const darkPrimary = brand;
+  static const darkOnPrimary = ink;
+  static const darkPrimaryOnContainer = brandLight;
   static const darkOnError = Color(0xFF3B1010);
   static const darkOnErrorContainer = Color(0xFFFECACA);
 
-  static const background = Color(0xFFF7F8F6);
-  static const surface = Color(0xFFFFFFFF);
-  static const surfaceVariant = Color(0xFFF3F4F6);
-  static const textPrimary = Color(0xFF171717);
-  static const textSecondary = Color(0xFF6B7280);
-  static const textTertiary = Color(0xFF9CA3AF);
-  static const border = Color(0xFFE5E7EB);
-  static const divider = Color(0xFFEEF0F0);
-  static const disabledBackground = Color(0xFFF3F4F6);
-  static const disabledText = Color(0xFF9CA3AF);
+  static const background = surfaceMuted;
+  static const surfaceVariant = surfaceMuted;
+  static const textPrimary = ink;
+  static const textSecondary = gray600;
+  static const textTertiary = gray500;
+  static const border = gray200;
+  static const divider = gray100;
+  static const disabledBackground = gray50;
+  static const disabledText = gray500;
 
-  static const success = Color(0xFF16A34A);
-  static const successForeground = Color(0xFF166534);
-  static const successLight = Color(0xFFDCFCE7);
+  static const success = Color(0xFF059669);
+  static const successForeground = brandDarker;
+  static const successLight = brandLight;
   static const warning = Color(0xFFF59E0B);
   static const warningForeground = Color(0xFF92400E);
   static const warningLight = Color(0xFFFEF3C7);
@@ -41,26 +61,26 @@ class AppColors {
   static const infoForeground = Color(0xFF1D4ED8);
   static const infoLight = Color(0xFFDBEAFE);
 
-  static const darkBackground = Color(0xFF111513);
-  static const darkSurface = Color(0xFF1A211F);
-  static const darkSurfaceVariant = Color(0xFF252D2A);
-  static const darkTextPrimary = Color(0xFFF3F4F4);
-  static const darkTextSecondary = Color(0xFFB0BAB6);
-  static const darkTextTertiary = Color(0xFF89948F);
-  static const darkBorder = Color(0xFF35403C);
-  static const darkDivider = Color(0xFF2A332F);
-  static const darkDisabledBackground = Color(0xFF252D2A);
-  static const darkDisabledText = Color(0xFF89948F);
+  static const darkBackground = ink;
+  static const darkSurface = gray800;
+  static const darkSurfaceVariant = gray700;
+  static const darkTextPrimary = gray50;
+  static const darkTextSecondary = gray300;
+  static const darkTextTertiary = gray400;
+  static const darkBorder = gray600;
+  static const darkDivider = gray700;
+  static const darkDisabledBackground = gray800;
+  static const darkDisabledText = gray500;
 
-  static const darkSuccess = Color(0xFF4ADE80);
-  static const darkSuccessContainer = Color(0xFF12351F);
+  static const darkSuccess = Color(0xFF6EE7B7);
+  static const darkSuccessContainer = Color(0xFF064E3B);
   static const darkWarning = Color(0xFFFBBF24);
   static const darkWarningContainer = Color(0xFF3A2D0D);
   static const darkError = Color(0xFFF87171);
   static const darkErrorContainer = Color(0xFF3D1717);
   static const darkInfo = Color(0xFF60A5FA);
   static const darkInfoContainer = Color(0xFF142C47);
-  static const darkPrimaryContainer = Color(0xFF123B34);
+  static const darkPrimaryContainer = brandDarker;
 }
 
 @immutable

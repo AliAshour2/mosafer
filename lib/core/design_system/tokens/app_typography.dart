@@ -5,6 +5,7 @@ class AppTypography {
 
   static const latinFontFamily = 'Inter';
   static const arabicFontFamily = 'IBM Plex Sans Arabic';
+  static const monospaceFontFamily = 'JetBrains Mono';
 
   static const regular = FontWeight.w400;
   static const medium = FontWeight.w500;
@@ -12,6 +13,13 @@ class AppTypography {
   static const bold = FontWeight.w700;
 
   static const fontFamilyFallback = <String>[arabicFontFamily];
+  static const code = TextStyle(
+    fontFamily: monospaceFontFamily,
+    fontFamilyFallback: fontFamilyFallback,
+    fontSize: 14,
+    height: 1.4,
+    fontWeight: regular,
+  );
 
   static TextTheme get textTheme => const TextTheme(
         displayLarge: TextStyle(
@@ -31,14 +39,14 @@ class AppTypography {
         headlineLarge: TextStyle(
           fontFamily: latinFontFamily,
           fontFamilyFallback: fontFamilyFallback,
-          fontSize: 24,
+          fontSize: 32,
           height: 1.25,
           fontWeight: bold,
         ),
         headlineMedium: TextStyle(
           fontFamily: latinFontFamily,
           fontFamilyFallback: fontFamilyFallback,
-          fontSize: 22,
+          fontSize: 24,
           height: 1.25,
           fontWeight: bold,
         ),
@@ -47,47 +55,47 @@ class AppTypography {
           fontFamilyFallback: fontFamilyFallback,
           fontSize: 20,
           height: 1.3,
-          fontWeight: semiBold,
+          fontWeight: bold,
         ),
         titleLarge: TextStyle(
           fontFamily: latinFontFamily,
           fontFamilyFallback: fontFamilyFallback,
-          fontSize: 18,
+          fontSize: 20,
           height: 1.35,
-          fontWeight: semiBold,
+          fontWeight: bold,
         ),
         titleMedium: TextStyle(
           fontFamily: latinFontFamily,
           fontFamilyFallback: fontFamilyFallback,
           fontSize: 16,
           height: 1.4,
-          fontWeight: semiBold,
+          fontWeight: medium,
         ),
         titleSmall: TextStyle(
           fontFamily: latinFontFamily,
           fontFamilyFallback: fontFamilyFallback,
-          fontSize: 15,
+          fontSize: 14,
           height: 1.4,
-          fontWeight: semiBold,
+          fontWeight: medium,
         ),
         bodyLarge: TextStyle(
           fontFamily: latinFontFamily,
           fontFamilyFallback: fontFamilyFallback,
           fontSize: 16,
           height: 1.5,
-          fontWeight: regular,
+          fontWeight: medium,
         ),
         bodyMedium: TextStyle(
           fontFamily: latinFontFamily,
           fontFamilyFallback: fontFamilyFallback,
-          fontSize: 15,
+          fontSize: 14,
           height: 1.5,
           fontWeight: regular,
         ),
         bodySmall: TextStyle(
           fontFamily: latinFontFamily,
           fontFamilyFallback: fontFamilyFallback,
-          fontSize: 14,
+          fontSize: 12,
           height: 1.45,
           fontWeight: regular,
         ),
@@ -96,21 +104,22 @@ class AppTypography {
           fontFamilyFallback: fontFamilyFallback,
           fontSize: 14,
           height: 1.35,
-          fontWeight: semiBold,
+          fontWeight: medium,
         ),
         labelMedium: TextStyle(
           fontFamily: latinFontFamily,
           fontFamilyFallback: fontFamilyFallback,
-          fontSize: 13,
+          fontSize: 12,
           height: 1.35,
-          fontWeight: semiBold,
+          fontWeight: regular,
         ),
         labelSmall: TextStyle(
           fontFamily: latinFontFamily,
           fontFamilyFallback: fontFamilyFallback,
-          fontSize: 12,
+          fontSize: 10,
           height: 1.35,
-          fontWeight: medium,
+          fontWeight: semiBold,
+          letterSpacing: 0.5,
         ),
       );
 }

@@ -14,6 +14,8 @@ ThemeData buildLightTheme() {
     onPrimaryContainer: AppColors.onPrimaryContainer,
     secondary: AppColors.primaryDark,
     onSecondary: AppColors.onSecondary,
+    secondaryContainer: AppColors.primaryLight,
+    onSecondaryContainer: AppColors.onPrimaryContainer,
     error: AppColors.error,
     onError: AppColors.onError,
     errorContainer: AppColors.errorLight,
@@ -49,7 +51,7 @@ ThemeData buildLightTheme() {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: AppColors.surface,
+      fillColor: AppColors.surfaceMuted,
       contentPadding: const EdgeInsets.symmetric(
         horizontal: AppSpacing.lg,
         vertical: AppSpacing.md,
@@ -90,6 +92,28 @@ ThemeData buildLightTheme() {
         shape: AppRadius.mediumShape,
         textStyle: textTheme.labelLarge,
         elevation: 0,
+      ).copyWith(
+        backgroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+          if (states.contains(WidgetState.disabled)) {
+            return AppColors.disabledBackground;
+          }
+          if (states.contains(WidgetState.pressed)) {
+            return AppColors.brandPressed;
+          }
+          if (states.contains(WidgetState.hovered)) {
+            return AppColors.brandHover;
+          }
+          return AppColors.brand;
+        }),
+        foregroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+          if (states.contains(WidgetState.disabled)) {
+            return AppColors.disabledText;
+          }
+          if (states.contains(WidgetState.pressed)) {
+            return AppColors.surface;
+          }
+          return AppColors.ink;
+        }),
       ),
     ),
     filledButtonTheme: FilledButtonThemeData(

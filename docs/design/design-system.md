@@ -1,6 +1,6 @@
 # Mosafer Design System
 
-The Mosafer Design System is the shared source of truth for product UI. It aims for a clear, trustworthy mobility experience: neutral surfaces, readable information, accessible controls, and restrained use of the teal brand color. It is inspired by modern transportation products, but defines an independent visual identity.
+The Mosafer Design System is the shared source of truth for product UI. It uses Uber-minimal black, white, and gray foundations with one transit-green accent, prioritizing readable information and accessible controls.
 
 ## Where the system lives
 
@@ -33,7 +33,7 @@ Before adding a style or component, search this system and the existing feature 
 ## Design principles
 
 - **Clarity first:** prioritize route, time, price, availability, pickup/drop-off, and booking status when those features are implemented.
-- **Neutral foundation:** surfaces and typography carry most of the hierarchy; teal marks important actions and selected states.
+- **Neutral foundation:** black, white, and gray carry most of the hierarchy; transit green marks important actions and selected states.
 - **Consistent and calm:** use shared spacing and component shapes. Keep shadows, motion, decoration, and competing accents restrained.
 - **Mobile first, responsive by constraints:** let content adapt to available space and text scaling. Do not size layouts from a presumed device width or height.
 - **Meaning beyond color:** pair status color with a readable label and, where useful, an icon.
@@ -44,9 +44,12 @@ Bundled fonts are registered in `pubspec.yaml` so text works offline:
 
 - Latin family: **Inter**
 - Arabic family: **IBM Plex Sans Arabic**
+- Code/QR family: **JetBrains Mono**
 - Supported weights: Regular 400, Medium 500, SemiBold 600, Bold 700
 
-`AppTypography` sets Inter as the main family and IBM Plex Sans Arabic as the glyph fallback. Mixed Arabic/Latin text can therefore use Flutter's font fallback without screens changing families manually. The system text theme defines display, headline, title, body, and label styles. Use `Theme.of(context).textTheme` rather than local font sizes or weights.
+`AppTypography` sets Inter as the main family and IBM Plex Sans Arabic as the glyph fallback. Mixed Arabic/Latin text can therefore use Flutter's font fallback without screens changing families manually. The `code` style uses JetBrains Mono for codes and QR content. Use `Theme.of(context).textTheme` rather than local font sizes or weights.
+
+The shared type scale maps `headlineLarge` to 32px/700 display, `titleLarge` to 20px/700, `bodyLarge` to 16px/500, `bodyMedium` to 14px/400, `bodySmall` to 12px/400, and `labelSmall` to 10px/600 eyebrow/tag text.
 
 Do not force `TextDirection.ltr` or `TextDirection.rtl` for an entire screen. Flutter's localization delegates derive direction from the active locale. Use directional alignment and padding (`AlignmentDirectional`, `EdgeInsetsDirectional`) for layout intent. Set a field's text direction only when the field's content has a product-defined direction, such as a phone number or identifier. Font files and their SIL Open Font License texts are included under `assets/fonts/`.
 
@@ -56,24 +59,39 @@ Use `Theme.of(context).colorScheme` for component-facing colors so widgets respo
 
 | Purpose | Light token | Value |
 | --- | --- | --- |
-| Brand primary | `AppColors.primary` | `#00A88F` |
-| Brand primary dark | `AppColors.primaryDark` | `#008F7A` |
-| Brand primary container | `AppColors.primaryLight` | `#E6F7F4` |
-| Background | `AppColors.background` | `#F7F8F6` |
+| Ink | `AppColors.ink` | `#000000` |
 | Surface | `AppColors.surface` | `#FFFFFF` |
-| Primary text | `AppColors.textPrimary` | `#171717` |
-| Secondary text | `AppColors.textSecondary` | `#6B7280` |
-| Tertiary text | `AppColors.textTertiary` | `#9CA3AF` |
-| Border | `AppColors.border` | `#E5E7EB` |
-| Divider | `AppColors.divider` | `#EEF0F0` |
-| Success | `AppColors.success` | `#16A34A` |
+| Muted surface | `AppColors.surfaceMuted` | `#F6F6F6` |
+| Brand | `AppColors.brand` | `#009A62` |
+| Brand dark | `AppColors.brandDark` | `#007A4D` |
+| Brand darker | `AppColors.brandDarker` | `#00603D` |
+| Brand light | `AppColors.brandLight` | `#E4F5EE` |
+| Brand hover | `AppColors.brandHover` | `#008A57` |
+| Brand pressed | `AppColors.brandPressed` | `#007A4D` |
+| Gray 50 | `AppColors.gray50` | `#F6F6F6` |
+| Gray 100 | `AppColors.gray100` | `#EEEEEE` |
+| Gray 200 | `AppColors.gray200` | `#E2E2E2` |
+| Gray 300 | `AppColors.gray300` | `#CBCBCB` |
+| Gray 400 | `AppColors.gray400` | `#AFAFAF` |
+| Gray 500 | `AppColors.gray500` | `#757575` |
+| Gray 600 | `AppColors.gray600` | `#545454` |
+| Gray 700 | `AppColors.gray700` | `#333333` |
+| Gray 800 | `AppColors.gray800` | `#1F1F1F` |
+| Gray 900 | `AppColors.gray900` | `#000000` |
+| Background | `AppColors.background` | `#F6F6F6` |
+| Primary text | `AppColors.textPrimary` | `#000000` |
+| Secondary text | `AppColors.textSecondary` | `#545454` |
+| Tertiary text | `AppColors.textTertiary` | `#757575` |
+| Border | `AppColors.border` | `#E2E2E2` |
+| Divider | `AppColors.divider` | `#EEEEEE` |
+| Success | `AppColors.success` | `#059669` |
 | Warning | `AppColors.warning` | `#F59E0B` |
 | Error | `AppColors.error` | `#DC2626` |
 | Information | `AppColors.info` | `#2563EB` |
 
-Semantic foreground and container pairs are exposed by `AppSemanticColors`, a `ThemeExtension`. Read it from the theme for status, validation, and feedback surfaces. Dark theme values are defined centrally as dark tokens; avoid using a light-only `AppColors` text or surface color directly in widgets.
+The full neutral ramp is available as `AppColors.gray50` through `gray900`. Semantic foreground and container pairs are exposed by `AppSemanticColors`, a `ThemeExtension`. Read it from the theme for status, validation, and feedback surfaces. Dark theme values are defined centrally as neutral dark tokens; avoid using a light-only `AppColors` text or surface color directly in widgets.
 
-Light-theme semantic foregrounds use darker companion values where needed to keep text readable on their corresponding light container colors. The base `AppColors.success`, `warning`, `error`, and `info` values are palette accents, not guaranteed foreground-on-container pairs. Primary teal is intentionally limited to important actions, selected states, and brand emphasis. Check foreground/background contrast when adding a semantic color combination. Never use color as the sole signal for a status or validation result.
+Light-theme semantic foregrounds use darker companion values where needed to keep text readable on their corresponding light container colors. The base `AppColors.success`, `warning`, `error`, and `info` values are palette accents, not guaranteed foreground-on-container pairs. Green is intentionally limited to important actions, selected states, and brand emphasis. Check foreground/background contrast when adding a semantic color combination. Never use color as the sole signal for a status or validation result.
 
 ## Spacing, radius, size, and elevation
 

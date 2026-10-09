@@ -14,6 +14,8 @@ ThemeData buildDarkTheme() {
     onPrimaryContainer: AppColors.darkPrimaryOnContainer,
     secondary: AppColors.darkPrimary,
     onSecondary: AppColors.darkOnPrimary,
+    secondaryContainer: AppColors.darkPrimaryContainer,
+    onSecondaryContainer: AppColors.darkPrimaryOnContainer,
     error: AppColors.darkError,
     onError: AppColors.darkOnError,
     errorContainer: AppColors.darkErrorContainer,
@@ -91,6 +93,28 @@ ThemeData buildDarkTheme() {
         shape: AppRadius.mediumShape,
         textStyle: textTheme.labelLarge,
         elevation: 0,
+      ).copyWith(
+        backgroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+          if (states.contains(WidgetState.disabled)) {
+            return AppColors.darkDisabledBackground;
+          }
+          if (states.contains(WidgetState.pressed)) {
+            return AppColors.brandPressed;
+          }
+          if (states.contains(WidgetState.hovered)) {
+            return AppColors.brandHover;
+          }
+          return AppColors.brand;
+        }),
+        foregroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+          if (states.contains(WidgetState.disabled)) {
+            return AppColors.darkDisabledText;
+          }
+          if (states.contains(WidgetState.pressed)) {
+            return AppColors.surface;
+          }
+          return AppColors.ink;
+        }),
       ),
     ),
     filledButtonTheme: FilledButtonThemeData(

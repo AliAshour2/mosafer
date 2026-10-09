@@ -10,6 +10,71 @@ void main() {
       final theme = buildLightTheme();
 
       expect(theme.colorScheme.primary, AppColors.primary);
+      expect(AppColors.ink, const Color(0xFF000000));
+      expect(AppColors.surface, const Color(0xFFFFFFFF));
+      expect(AppColors.surfaceMuted, const Color(0xFFF6F6F6));
+      expect(AppColors.brand, const Color(0xFF009A62));
+      expect(AppColors.brandDark, const Color(0xFF007A4D));
+      expect(AppColors.brandDarker, const Color(0xFF00603D));
+      expect(AppColors.brandLight, const Color(0xFFE4F5EE));
+      expect(AppColors.brandHover, const Color(0xFF008A57));
+      expect(AppColors.brandPressed, AppColors.brandDark);
+      expect(
+        [
+          AppColors.gray50,
+          AppColors.gray100,
+          AppColors.gray200,
+          AppColors.gray300,
+          AppColors.gray400,
+          AppColors.gray500,
+          AppColors.gray600,
+          AppColors.gray700,
+          AppColors.gray800,
+          AppColors.gray900,
+        ],
+        [
+          const Color(0xFFF6F6F6),
+          const Color(0xFFEEEEEE),
+          const Color(0xFFE2E2E2),
+          const Color(0xFFCBCBCB),
+          const Color(0xFFAFAFAF),
+          const Color(0xFF757575),
+          const Color(0xFF545454),
+          const Color(0xFF333333),
+          const Color(0xFF1F1F1F),
+          const Color(0xFF000000),
+        ],
+      );
+      expect(AppColors.success, const Color(0xFF059669));
+      expect(AppColors.warning, const Color(0xFFF59E0B));
+      expect(AppColors.error, const Color(0xFFDC2626));
+      expect(AppColors.info, const Color(0xFF2563EB));
+      expect(theme.colorScheme.onPrimary, AppColors.ink);
+      expect(theme.inputDecorationTheme.fillColor, AppColors.surfaceMuted);
+      expect(
+        _contrastRatio(theme.colorScheme.onPrimary, theme.colorScheme.primary),
+        greaterThanOrEqualTo(4.5),
+      );
+      final buttonStyle = theme.elevatedButtonTheme.style!;
+      expect(
+        buttonStyle.backgroundColor?.resolve({WidgetState.hovered}),
+        AppColors.brandHover,
+      );
+      expect(
+        buttonStyle.backgroundColor?.resolve({WidgetState.pressed}),
+        AppColors.brandPressed,
+      );
+      expect(
+        buttonStyle.foregroundColor?.resolve({WidgetState.pressed}),
+        AppColors.surface,
+      );
+      expect(
+        _contrastRatio(
+          buttonStyle.foregroundColor!.resolve({WidgetState.pressed})!,
+          buttonStyle.backgroundColor!.resolve({WidgetState.pressed})!,
+        ),
+        greaterThanOrEqualTo(4.5),
+      );
       expect(theme.scaffoldBackgroundColor, AppColors.background);
       expect(
         theme.extension<AppSemanticColors>()?.success,
@@ -21,6 +86,7 @@ void main() {
       final theme = buildDarkTheme();
 
       expect(theme.brightness, Brightness.dark);
+      expect(theme.scaffoldBackgroundColor, AppColors.ink);
       expect(theme.colorScheme.surface, AppColors.darkSurface);
       expect(
         theme.extension<AppSemanticColors>()?.success,
@@ -35,6 +101,22 @@ void main() {
       expect(
           style.fontFamilyFallback, contains(AppTypography.arabicFontFamily));
       expect(style.fontWeight, AppTypography.regular);
+    });
+
+    test('typography follows the product scale and includes code type', () {
+      final textTheme = AppTypography.textTheme;
+
+      expect(textTheme.headlineLarge?.fontSize, 32);
+      expect(textTheme.headlineLarge?.fontWeight, AppTypography.bold);
+      expect(textTheme.titleLarge?.fontSize, 20);
+      expect(textTheme.titleLarge?.fontWeight, AppTypography.bold);
+      expect(textTheme.bodyLarge?.fontSize, 16);
+      expect(textTheme.bodyLarge?.fontWeight, AppTypography.medium);
+      expect(textTheme.bodyMedium?.fontSize, 14);
+      expect(textTheme.bodySmall?.fontSize, 12);
+      expect(textTheme.labelSmall?.fontSize, 10);
+      expect(textTheme.labelSmall?.fontWeight, AppTypography.semiBold);
+      expect(AppTypography.code.fontFamily, AppTypography.monospaceFontFamily);
     });
 
     test('semantic foregrounds meet normal text contrast on their surfaces',
@@ -132,9 +214,13 @@ void main() {
     final arabic = await rootBundle.load(
       'assets/fonts/ibm_plex_sans_arabic/ibm-plex-sans-arabic-regular.ttf',
     );
+    final mono = await rootBundle.load(
+      'assets/fonts/jetbrains_mono/jetbrains-mono-regular.ttf',
+    );
 
     expect(inter.lengthInBytes, greaterThan(0));
     expect(arabic.lengthInBytes, greaterThan(0));
+    expect(mono.lengthInBytes, greaterThan(0));
   });
 }
 
