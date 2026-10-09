@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../core/design_system/components/feedback/app_loading.dart';
+import '../../../../core/design_system/app_design_system.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../auth/application/auth_providers.dart';
+import '../../../auth/presentation/auth_error_message.dart';
 import '../../../todos/presentation/providers/todos_provider.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -10,35 +13,67 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final todos = ref.watch(todosProvider);
+    final authAction = ref.watch(authControllerProvider);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Todos'),
+        actions: [
+          AppIconButton(
+            icon: Icons.logout,
+            semanticLabel: l10n.authSignOut,
+            onPressed: authAction.isLoading
+                ? null
+                : () => ref.read(authControllerProvider.notifier).signOut(),
+          ),
+          const SizedBox(width: AppSpacing.sm),
+        ],
       ),
-      body: todos.when(
-        loading: () => const AppLoadingIndicator(
-          label: 'Loading todos',
-        ),
-        error: (error, stackTrace) => AppErrorState(
-          message: 'We could not load the todos right now. Please try again.',
-          onRetry: () => ref.invalidate(todosProvider),
-        ),
-        data: (items) {
-          if (items.isEmpty) {
-            return const AppEmptyState(
-              title: 'No todos yet',
-              description: 'There are no items to show right now.',
-              icon: Icons.checklist_rounded,
-            );
-          }
-
-          return ListView.builder(
-            itemCount: items.length,
-            itemBuilder: (context, index) => ListTile(
-              title: Text(items[index].name),
+      body: Column(
+        children: [
+          if (authAction.hasError) ...[
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(
+                AppSpacing.lg,
+                AppSpacing.md,
+                AppSpacing.lg,
+                0,
+              ),
+              child: AppInlineError(
+                message: authErrorMessage(l10n, authAction.error),
+              ),
             ),
-          );
-        },
+          ],
+          Expanded(
+            child: todos.when(
+              loading: () => const AppLoadingIndicator(
+                label: 'Loading todos',
+              ),
+              error: (error, stackTrace) => AppErrorState(
+                message:
+                    'We could not load the todos right now. Please try again.',
+                onRetry: () => ref.invalidate(todosProvider),
+              ),
+              data: (items) {
+                if (items.isEmpty) {
+                  return const AppEmptyState(
+                    title: 'No todos yet',
+                    description: 'There are no items to show right now.',
+                    icon: Icons.checklist_rounded,
+                  );
+                }
+
+                return ListView.builder(
+                  itemCount: items.length,
+                  itemBuilder: (context, index) => ListTile(
+                    title: Text(items[index].name),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
